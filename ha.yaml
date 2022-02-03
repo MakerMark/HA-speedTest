@@ -1,0 +1,78 @@
+#You have to add those in your configuration.yaml or where you declare your sensors
+camera:
+  - platform: local_file
+    file_path: /config/www/images/speedtest.png
+
+sensor:
+  - platform: file
+    name: CustomSpeedTestDownload
+    file_path: /config/www/speedtest.json
+    value_template: '{{ (value_json.download.bandwidth * 0.000008) | round(2)}}'
+    unit_of_measurement: "Mbps"
+  - platform: file
+    name: CustomSpeedTestUpload
+    file_path: /config/www/speedtest.json
+    value_template: '{{ (value_json.upload.bandwidth * 0.000008) | round(2)}}'
+    unit_of_measurement: "Mbps"
+  - platform: file
+    name: CustomSpeedTestPing
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.ping.latency | round(2)}}'
+    unit_of_measurement: "Ms"
+  - platform: file
+    name: CustomSpeedTestJitter
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.ping.jitter | round(2)}}'
+    unit_of_measurement: "Ms"
+  - platform: file
+    name: CustomSpeedTestPacketLoss
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.packetLoss}}'
+  - platform: file
+    name: CustomSpeedTestTimestamp
+    file_path: /config/www/speedtest.json
+    value_template: '{{ as_timestamp(value_json.timestamp) | timestamp_custom("%A %B %d, %H:%M")}}'
+  - platform: file
+    name: CustomSpeedTestISP
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.isp}}'
+  - platform: file
+    name: CustomSpeedTestInternalIp
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.interface.internalIp}}'
+  - platform: file
+    name: CustomSpeedTestInterface
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.interface.name}}'
+  - platform: file
+    name: CustomSpeedTestExternalIp
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.interface.externalIp}}'
+  - platform: file
+    name: CustomSpeedTestInterface
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.interface.name}}'
+  - platform: file
+    name: CustomSpeedTestServerId
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.server.id}}'
+  - platform: file
+    name: CustomSpeedTestServerName
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.server.name}}'
+  - platform: file
+    name: CustomSpeedTestServerLocation
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.server.location}}'
+  - platform: file
+    name: CustomSpeedTestGooglePingMax
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.pingGoogleMax}}'
+  - platform: file
+    name: CustomSpeedTestGooglePingMin
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.pingGoogleMin}}'
+  - platform: file
+    name: CustomSpeedTestGooglePingAvg
+    file_path: /config/www/speedtest.json
+    value_template: '{{ value_json.pingGoogleAvg}}'
