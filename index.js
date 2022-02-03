@@ -8,6 +8,7 @@ let express = require('express');
 let app = express();
 let ping = require('ping');
 let config = {
+  //serverId: 38096, //RECOMENDED: don't let speedtest choose the server for you :)
   acceptLicense: true,
   acceptGdpr: true
 };
